@@ -5,13 +5,18 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.example.mvvm_architecture.model.Product;
 
+import org.parceler.Parcel;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class ProductRepo {
+    // To ensure that this class can NOT be initiated via the constructor
+    private ProductRepo(){}
 
     private static ProductRepo instance;
     private ArrayList<Product> products = new ArrayList<>();
+
 
     public static ProductRepo getInstance(){
         if (instance == null){
@@ -19,7 +24,6 @@ public class ProductRepo {
         }
         return instance;
     }
-
 
     // fetching the data from API is typically done here
     public MutableLiveData<List<Product>> fetchProducts(){
@@ -35,5 +39,24 @@ public class ProductRepo {
             products.add(p);
         }
     }
+
+
+
+
+
+
+
+
+
+    public ArrayList<Product> getProducts() {
+        return products;
+    }
+    public static void setInstance(ProductRepo instance) {
+        ProductRepo.instance = instance;
+    }
+    public void setProducts(ArrayList<Product> products) {
+        this.products = products;
+    }
+
 
 }

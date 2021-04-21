@@ -59,13 +59,12 @@ public class MainActivity extends AppCompatActivity {
 
         initViewModel();
         initViews();
-        //        getProducts();
         setupFab();
 
 
     }
     private void initViewModel(){
-        /* ViewModelProviders.of() has been deprecated
+        /*
         // With ViewModelFactory
         val viewModel = ViewModelProvider(this, YourViewModelFactory).get(YourViewModel::class.java)
         OR
@@ -73,6 +72,9 @@ public class MainActivity extends AppCompatActivity {
         val viewModel = ViewModelProvider(this).get(YourViewModel::class.java)
         */
         // Without ViewModelFactory
+
+        // IMPORTANT read the comments in ProductViewModel file, on "Why "ProductViewModel" class extends the "androidx.lifecycle.ViewModel"?"
+
         productViewModel = new ViewModelProvider(this).get(ProductViewModel.class);
 
         productViewModel.init();

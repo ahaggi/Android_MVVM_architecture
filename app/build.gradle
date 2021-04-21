@@ -46,6 +46,11 @@ dependencies {
     implementation 'com.google.android.material:material:1.1.0'
 
 
+
+
+
+
+
     // ****************************** MVVM dependencies ************************************* //
     // AndroidX Lifecycle-aware components
     // The APIs in lifecycle-extensions have been deprecated. Instead, add dependencies for the specific Lifecycle artifacts you need
@@ -80,5 +85,11 @@ dependencies {
     testImplementation "androidx.arch.core:core-testing:$arch_version"
 
     // *********************************************************************** //
+
+
+    // "Parceler" framework which simplify the management of Parcelable objects.
+    implementation 'org.parceler:parceler-api:1.1.12'
+    annotationProcessor 'org.parceler:parceler:1.1.12'
+
 
 }
