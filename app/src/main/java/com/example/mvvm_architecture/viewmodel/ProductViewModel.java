@@ -14,6 +14,13 @@ import java.util.List;
 public class ProductViewModel extends ViewModel{
 
     /*
+    git checkout ProductViewModel_Extends_ViewModel:
+        The version of this example where the ProductViewModel class extends the "androidx.lifecycle.ViewModel"
+
+    git checkout ProductViewModel_DOES_NOT_Extend_ViewModel
+        The version of this example where the ProductViewModel class DOES NOT extends the "androidx.lifecycle.ViewModel", but with lifecycle awareness managing.
+
+
     Why "ProductViewModel" class extends the "androidx.lifecycle.ViewModel"?
     A ViewModel is always created in association with a scope of (fragment/activity) and will be retained as long as the scope is alive.
     In other words, this means that a ViewModel will not be destroyed if its owner is destroyed for a configuration change (e.g. screen rotation). The new instance of the owner will just re-connected to the existing ViewModel.
