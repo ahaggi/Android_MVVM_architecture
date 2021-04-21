@@ -10,6 +10,8 @@ import org.parceler.Parcel;
 import java.util.ArrayList;
 import java.util.List;
 
+// Annotate this class with @Parcel, since we are using "Parceler" framework
+@Parcel
 public class ProductRepo {
     // To ensure that this class can NOT be initiated via the constructor
     private ProductRepo(){}

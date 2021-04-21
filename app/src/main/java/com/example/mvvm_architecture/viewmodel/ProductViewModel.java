@@ -9,9 +9,13 @@ import androidx.lifecycle.ViewModel;
 import com.example.mvvm_architecture.model.Product;
 import com.example.mvvm_architecture.repo.ProductRepo;
 
+import org.parceler.Parcel;
+
 import java.util.List;
 
-public class ProductViewModel extends ViewModel{
+// Annotate this class with @Parcel, since we are using "Parceler" framework
+@Parcel
+public class ProductViewModel{
 
     /*
     Why "ProductViewModel" class extends the "androidx.lifecycle.ViewModel"?

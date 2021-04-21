@@ -1,5 +1,6 @@
 package com.example.mvvm_architecture;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -24,6 +25,8 @@ import java.util.List;
 
 import com.example.mvvm_architecture.adapter.*;
 
+import org.parceler.Parcels;
+
 
 /*
 -----------------
@@ -36,6 +39,7 @@ import com.example.mvvm_architecture.adapter.*;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
+    private static final String PRODUCT_VIEW_MODEL = "ProductViewModel";
 
 
 
@@ -57,25 +61,28 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        initViewModel();
+        initViewModel(savedInstanceState);
         initViews();
         setupFab();
-
-
     }
-    private void initViewModel(){
-        /*
-        // With ViewModelFactory
-        val viewModel = ViewModelProvider(this, YourViewModelFactory).get(YourViewModel::class.java)
-        OR
-        //Without ViewModelFactory
-        val viewModel = ViewModelProvider(this).get(YourViewModel::class.java)
-        */
-        // Without ViewModelFactory
 
-        // IMPORTANT read the comments in ProductViewModel file, on "Why "ProductViewModel" class extends the "androidx.lifecycle.ViewModel"?"
 
-        productViewModel = new ViewModelProvider(this).get(ProductViewModel.class);
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelable(PRODUCT_VIEW_MODEL, Parcels.wrap(productViewModel));
+    }
+
+
+
+    private void initViewModel(Bundle savedInstanceState){
+        // IMPORTANT read the comments in ProductViewModel file, on "Lifecycle awareness even if "ProductViewModel" does not extends ViewModel"
+        if (savedInstanceState == null) {
+            productViewModel = new ProductViewModel();
+        } else {
+            productViewModel = Parcels.unwrap(savedInstanceState.getParcelable(PRODUCT_VIEW_MODEL));
+        }
+
 
         productViewModel.init();
 

@@ -1,5 +1,9 @@
 package com.example.mvvm_architecture.model;
 
+import org.parceler.Parcel;
+
+// Annotate this class with @Parcel, since we are using "Parceler" framework
+@Parcel
 public class Product {
     private int id;
     private String title;
