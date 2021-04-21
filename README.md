@@ -39,8 +39,9 @@ productViewModel = new ProductViewModel();
     Note: In order to save an instance of ProductViewModel, it has either to:
         - implement the "Parcelable interface with writeToParcel() and createFromParcel() methods".
         - or use "Parceler" framework which simplify the management of Parcelable objects.By adding the Parceler dependency to app/gradle, and annotate ProductViewModel and (any member fields' classes if necessary) with @Parcel.
+![alt text][img3]
 
-
+ 
 [img1]: android-mvvm-architecture.png
-
 [img2]: android-mvvm-tutorial.png
+[img3]: android-mvvm-persisting-state-with-ViewModel.png
