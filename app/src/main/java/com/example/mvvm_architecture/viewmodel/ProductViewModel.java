@@ -39,11 +39,10 @@ public class ProductViewModel{
 
         To fix that we have to assert that ProductViewModel is recreated only in case it is started for the first time.
         One way to do that is by checking if (savedInstanceState == null) then create new instance of ProductViewModel, Otherwise retrieve the prev saved instance of "ProductViewModel", and
-        also we have the "ProductViewModel's instance" inside the overridden method protected void onSaveInstanceState(@NonNull Bundle outState) {..}
+        also we have to save the "ProductViewModel's instance" inside the overridden method protected void onSaveInstanceState(@NonNull Bundle outState) {..}
         Note: In order to save an instance of ProductViewModel, it has either:
             - implement the "Parcelable interface with writeToParcel() and createFromParcel() methods".
-            - or use "Parceler" framework which simplify the management of Parcelable objects.
-                    Add the Parceler dependency to app/gradle, and annotate ProductViewModel and its fieldsmembers with @Parcel
+            - or use "Parceler" framework which simplify the management of Parcelable objects.By adding the Parceler dependency to app/gradle, and annotate ProductViewModel and (any member fields' classes if necessary) with @Parcel.
 
 
     * */
